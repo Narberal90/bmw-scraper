@@ -44,12 +44,14 @@ class BmwSpider(scrapy.Spider):
         data = json.loads(response.text)
 
         for car in data["results"]:
+            engine = car.get("engine", {}).get("cc")
+
             item_data = {
                 "model": car["title"],
                 "name": car["derivative"],
                 "mileage": car["mileage"],
                 "registered": car["registration"]["date"],
-                "engine": car.get("engine", {}).get("cc"),
+                "engine": engine if engine else None,
                 "range_": car.get("consumption", {})
                 .get("range", {})
                 .get("values", {})
