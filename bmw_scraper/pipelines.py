@@ -1,7 +1,5 @@
 import sqlite3
-
 from datetime import datetime
-
 
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
@@ -80,7 +78,7 @@ class ValidationPipeline:
         if registered:
             try:
                 dt = datetime.strptime(registered, "%Y-%m-%dT%H:%M:%SZ")
-                adapter["registered"] = dt.strftime("%b %Y")  # "Jan 2025"
+                adapter["registered"] = dt.strftime("%b %Y")
             except ValueError:
                 pass
 
