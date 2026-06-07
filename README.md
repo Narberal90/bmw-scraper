@@ -18,3 +18,7 @@ scrapy crawl bmw
 ```
 
 Results are saved to `bmw_cars.db`. Duplicates are ignored by registration plate.
+
+## Database Preview
+
+![Database preview](assets/db_preview.png)
